@@ -1,3 +1,4 @@
+'use client';
 import { Navbar } from '@/components/ui/Navbar';
 import { SideMenu } from '@/components/ui/SideMenu';
 import { Metadata } from 'next';

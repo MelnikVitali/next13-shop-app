@@ -8,8 +8,9 @@ import '@/styles/globals.css';
 import Footer from '@/components/ui/Footer';
 
 const roboto = Roboto({
-  weight: '400',
+  weight: ['400', '700'],
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
