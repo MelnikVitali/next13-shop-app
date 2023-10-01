@@ -9,11 +9,19 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 interface Props {
   children: React.ReactNode;
+  params?: any;
 }
 
-export const metadata: Metadata = {
-  title: 'Next App | Shop',
-  description: 'Find the best Tesla products here',
+// export const metadata: Metadata = {
+//   title: 'Next App | Shop',
+//   description: 'Find the best Tesla products here',
+// };
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  console.log('params', params);
+  return {
+    title: 'post.title',
+  };
 };
 
 export const ShopLayout: FC<Props> = ({ children }) => {
