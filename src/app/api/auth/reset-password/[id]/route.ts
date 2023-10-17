@@ -1,7 +1,7 @@
-import { connectToMongoDB } from '@/lib/mongodb';
-import User from '@/models/user';
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
+import db from '@/database/db';
+import User from '@/models/User';
 
 interface Params {
   params: {
@@ -11,11 +11,12 @@ interface Params {
 
 export async function PUT(req: Request, { params: { id } }: Params) {
   try {
-    await connectToMongoDB();
+    await db.connect();
     const { password } = await req.json();
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const updatePassword = await User.findOneAndUpdate({ _id: id }, { password: hashedPassword });
+    await db.disconnect();
 
     if (!updatePassword) {
       return NextResponse.json({ message: 'Password update failed.' }, { status: 403 });

@@ -73,6 +73,7 @@ const ResetPasswordForm: FC<IResetProps> = ({ id }) => {
                         loading={loading}
                         type='submit'
                         variant='contained'
+                        color='secondary'
                         sx={styles.loadingButton}
                       >
                         Submit

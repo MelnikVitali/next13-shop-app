@@ -1,11 +1,11 @@
 'use client';
+import { useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { RemoveShoppingCartOutlined } from '@mui/icons-material';
 import { Box, Typography, Link as MuiLink } from '@mui/material';
-import { ShopLayout } from '@/components/layouts/ShopLayout';
-import Link from 'next/link';
-import { useEffect } from 'react';
 import { useAppSelector } from '@/redux/hooks';
-import { useRouter } from 'next/navigation';
+import { ShopLayout } from '@/components/layouts/ShopLayout';
 
 const EmptyPage = () => {
   const { cart } = useAppSelector((state) => state.cart);

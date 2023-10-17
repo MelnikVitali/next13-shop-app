@@ -1,5 +1,6 @@
 'use client';
-import { FC, useContext } from 'react';
+import { FC } from 'react';
+import Link from 'next/link';
 import {
   Box,
   Link as MuiLink,
@@ -11,9 +12,8 @@ import {
 } from '@mui/material';
 import { ICartProduct } from '@/interfaces/cart';
 import { IOrderItem } from '@/interfaces/order';
-import { ItemCounter } from '../ui/ItemCounter';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import Link from 'next/link';
+import { ItemCounter } from '@/components/ui/ItemCounter';
 import { removeCartProduct, updateCartQuantity } from '@/redux/slices/cartSlice';
 
 interface Props {

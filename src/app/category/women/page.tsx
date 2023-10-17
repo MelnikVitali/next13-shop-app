@@ -1,9 +1,9 @@
 'use client';
 import type { NextPage } from 'next';
 import { Typography } from '@mui/material';
+import { useProducts } from '@/hooks/useProducts';
 import { FullScreenLoading } from '@/components/ui/FullScreenLoading';
 import ProductList from '@/components/products/ProductList';
-import { useProducts } from '@/hooks/useProducts';
 import { ShopLayout } from '@/components/layouts/ShopLayout';
 
 const WomenPage: NextPage = () => {

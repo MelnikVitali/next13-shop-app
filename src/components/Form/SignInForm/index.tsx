@@ -1,32 +1,20 @@
 'use client';
 import { type FC } from 'react';
-import {
-  Container,
-  Grid,
-  Box,
-  Typography,
-  Stack,
-  Link as MuiLink,
-  FormControlLabel,
-  Checkbox,
-  FormHelperText,
-  Alert,
-} from '@mui/material';
+import { Container, Grid, Box, Typography, Stack, Link as MuiLink, Alert } from '@mui/material';
 import Link from 'next/link';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import SocialLoginButtons from '@/components/Form/SocialLoginButtons';
 import { LoadingButton } from '@mui/lab';
-import { styles } from './styles';
-import TextInput from '../FormInputs/TextInput';
-import PasswordInput from '../FormInputs/PasswordInput';
 import { signInYupSchema } from '@/utils/yupSchemas';
 import { useSignInSubmit } from '@/hooks/useSignInSubmit';
+import SocialLoginButtons from '@/components/Form/SocialLoginButtons';
+import PasswordInput from '@/components/Form/FormInputs/PasswordInput';
+import TextInput from '@/components/Form/FormInputs/TextInput';
+import { styles } from './styles';
 
 export interface IFormInputsSignIn {
   email: string;
   password: string;
-  isTrustDevice?: boolean;
 }
 
 const SignInForm: FC = () => {
@@ -68,29 +56,11 @@ const SignInForm: FC = () => {
                     errors={errors}
                     label='Password'
                   />
-                  <Controller
-                    name='isTrustDevice'
-                    control={control}
-                    render={({ field }) => (
-                      <>
-                        <FormControlLabel
-                          control={
-                            <Checkbox {...field} size='small' sx={styles.isTrustDeviceCheckbox} />
-                          }
-                          sx={styles.isTrustDeviceController}
-                          label='Trust this device'
-                        />
-                        {errors.isTrustDevice && (
-                          <FormHelperText error>{errors.isTrustDevice.message}</FormHelperText>
-                        )}
-                      </>
-                    )}
-                  />
-
                   <LoadingButton
                     loading={loading}
                     type='submit'
                     variant='contained'
+                    color='secondary'
                     sx={styles.loadingButton}
                   >
                     Login

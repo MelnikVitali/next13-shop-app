@@ -1,8 +1,8 @@
 'use client';
 import { Typography } from '@mui/material';
-import { ShopLayout } from '@/components/layouts/ShopLayout';
 import { NextPage } from 'next';
 import { useProducts } from '@/hooks/useProducts';
+import { ShopLayout } from '@/components/layouts/ShopLayout';
 import { FullScreenLoading } from '@/components/ui/FullScreenLoading';
 import ProductList from '@/components/products/ProductList';
 

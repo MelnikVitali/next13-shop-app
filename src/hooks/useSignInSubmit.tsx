@@ -19,7 +19,7 @@ export const useSignInSubmit = (): [
   ) => {
     try {
       event?.preventDefault();
-      const { email, password, isTrustDevice } = data;
+      const { email, password } = data;
 
       setError('');
       setLoading(true);
@@ -27,7 +27,6 @@ export const useSignInSubmit = (): [
       const res = await signIn('credentials', {
         email,
         password,
-        isTrustDevice,
         redirect: false,
       });
 
@@ -38,7 +37,7 @@ export const useSignInSubmit = (): [
       }
 
       router.refresh();
-      // router.push('/profile', { scroll: true });
+      router.push('/profile', { scroll: true });
     } catch (error) {
       const message = `${error}`;
 

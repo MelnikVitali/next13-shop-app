@@ -20,16 +20,19 @@ export const useSignUpSubmit = (): [
     setError('');
     setLoading(true);
 
-    const { name, email, password, isTrustDevice } = data;
+    const { name, email, password } = data;
 
     try {
-      const resUserExists = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user-exists`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const resUserExists = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/user-exists`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
         },
-        body: JSON.stringify({ email }),
-      });
+      );
 
       const { user } = await resUserExists.json();
       if (user) {
@@ -37,7 +40,7 @@ export const useSignUpSubmit = (): [
         setError('The user with this email address is already registered.');
         return;
       }
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/signup`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +49,6 @@ export const useSignUpSubmit = (): [
           name,
           email,
           password,
-          isTrustDevice,
         }),
       });
 
@@ -56,7 +58,7 @@ export const useSignUpSubmit = (): [
 
         toast.success('User successfully registered.');
         router.refresh();
-        router.push('/signin', { scroll: true });
+        router.push('/auth/login', { scroll: true });
       } else {
         const message = 'User registration failed.';
         setLoading(false);

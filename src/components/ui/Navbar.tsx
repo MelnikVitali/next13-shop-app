@@ -1,8 +1,7 @@
 'use client';
 import { useContext, useState } from 'react';
-import NextLink from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-
+import Link from 'next/link';
 import {
   AppBar,
   Badge,
@@ -16,12 +15,9 @@ import {
   Typography,
 } from '@mui/material';
 import { ClearOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
-
-// import { CartContext, UiContext } from '../../context';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { toggleSideMenu } from '@/redux/slices/sideMenuSlice';
 import { ThemeToggle } from './ThemeToggle';
-import Link from 'next/link';
 
 export const Navbar = () => {
   const router = useRouter();
@@ -55,10 +51,14 @@ export const Navbar = () => {
           className='fadeIn'
         >
           <MuiLink component={Link} href='/category/men'>
-            <Button color={pathname === '/category/men' ? 'primary' : 'info'}>Men</Button>
+            <Button sx={{ mr: '4px' }} color={pathname === '/category/men' ? 'primary' : 'info'}>
+              Men
+            </Button>
           </MuiLink>
           <MuiLink component={Link} href='/category/women'>
-            <Button color={pathname === '/category/women' ? 'primary' : 'info'}>Women</Button>
+            <Button sx={{ mr: '4px' }} color={pathname === '/category/women' ? 'primary' : 'info'}>
+              Women
+            </Button>
           </MuiLink>
           <MuiLink component={Link} href='/category/kid'>
             <Button color={pathname === '/category/kid' ? 'primary' : 'info'}>Children</Button>

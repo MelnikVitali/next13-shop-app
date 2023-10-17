@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 export interface ISideMenu {
   isOpenSideMenu: boolean;
@@ -14,7 +14,6 @@ export const sideMenuSlice = createSlice({
   reducers: {
     toggleSideMenu: (state) => {
       state.isOpenSideMenu = !state.isOpenSideMenu;
-      console.log('toggle');
     },
   },
 });
@@ -22,4 +21,4 @@ export const sideMenuSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { toggleSideMenu } = sideMenuSlice.actions;
 
-export const sideMenuReducer =  sideMenuSlice.reducer;
+export const sideMenuReducer = sideMenuSlice.reducer;

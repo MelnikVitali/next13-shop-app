@@ -3,17 +3,7 @@ import { productsApi } from './services/productsAPI';
 import { cartReducer } from './slices/cartSlice';
 import { sideMenuReducer } from './slices/sideMenuSlice';
 import storage from './customStorage';
-// import storage from 'redux-persist/lib/storage';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
 
 const cartPersistConfig = {
   key: 'cart',

@@ -35,9 +35,6 @@ const SignUnForm: FC = () => {
       <Grid container sx={styles.subWrapper}>
         <Grid item sx={{ maxWidth: '70rem', width: '100%' }}>
           <Grid container sx={styles.papier}>
-            <Typography variant='h4' component='h1' sx={styles.title}>
-              Welcome To Blog Next.js 13!
-            </Typography>
             <Grid item container rowSpacing={5} sx={styles.containerForm}>
               <Grid item xs={12} sm={12}>
                 <Box
@@ -69,6 +66,7 @@ const SignUnForm: FC = () => {
                     loading={loading}
                     type='submit'
                     variant='contained'
+                    color='secondary'
                     sx={styles.loadingButton}
                   >
                     Sign Up

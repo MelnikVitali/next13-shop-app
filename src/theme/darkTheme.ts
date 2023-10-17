@@ -69,7 +69,8 @@ export const darkTheme = {
           boxShadow: 'none',
           borderRadius: 10,
           ':hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.15)',
+            backgroundColor: '#e0e0e0',
+            color: '#000',
             transition: 'all 0.3s ease-in-out',
           },
         },

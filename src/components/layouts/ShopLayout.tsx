@@ -12,11 +12,6 @@ interface Props {
   params?: any;
 }
 
-// export const metadata: Metadata = {
-//   title: 'Next App | Shop',
-//   description: 'Find the best Tesla products here',
-// };
-
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   console.log('params', params);
   return {

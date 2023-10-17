@@ -1,31 +1,50 @@
 'use client';
-import { useAppDispatch } from '@/redux/hooks';
-import { AppBar, Toolbar, Link as MuiLink, Typography, Box, Button } from '@mui/material';
-import Link from 'next/link';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { toggleSideMenu } from '@/redux/slices/sideMenuSlice';
+import { Typography, Box } from '@mui/material';
 import { SideMenu } from '@/components/ui/SideMenu';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ScrollToTop from 'react-scroll-to-top';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import AdminNavbar from '../ui/AdminNavbar';
+import React, { FC } from 'react';
 
-const OutShopLayout = ({ children }: { children: React.ReactNode }) => {
-  const dispatch = useAppDispatch();
+interface Props {
+  title?: string;
+  subTitle?: string;
+  icon?: JSX.Element;
+  children: React.ReactNode;
+}
+
+const OutShopLayout: FC<Props> = ({ children, title, subTitle, icon }) => {
+  const matches = useMediaQuery('(min-width:768px)');
+
   return (
-    <AppBar>
-      <Toolbar>
-        <MuiLink component={Link} href='/' display='flex' alignItems='center'>
-          <Typography variant='h6'>Next App |</Typography>
-          <Typography sx={{ ml: 0.5, mt: 0.5 }}>Shop</Typography>
-        </MuiLink>
+    <>
+      <nav>
+        <AdminNavbar />
+      </nav>
 
-        <Box flex={1} />
+      <SideMenu />
+      <main className='container'>
+        {title && subTitle && (
+          <Box display='flex' flexDirection='column'>
+            <Typography variant='h1' component='h1'>
+              {icon}
+              {title}
+            </Typography>
+            <Typography variant='h2' sx={{ mb: 1 }}>
+              {subTitle}
+            </Typography>
+          </Box>
+        )}
 
-        <ThemeToggle />
-
-        {/* <SideMenu /> */}
-
-        <Button onClick={() => dispatch(toggleSideMenu())}>Menu</Button>
-        {/* <main className='container'>{children}</main> */}
-      </Toolbar>
-    </AppBar>
+        <Box className='fadeIn'>{children}</Box>
+      </main>
+      {matches && (
+        <ScrollToTop smooth component={<ArrowUpwardIcon color='primary' />}>
+          ArrowUpwardIcon
+        </ScrollToTop>
+      )}
+    </>
   );
 };
 

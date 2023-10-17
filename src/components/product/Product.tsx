@@ -1,14 +1,14 @@
 'use client';
 import { FC, useState } from 'react';
-import { ICartProduct } from '@/interfaces/cart';
-import { Box, Button, Chip, Grid, Typography } from '@mui/material';
-import { SizeSelector } from '../products/SizeSelector';
-import { ItemCounter } from '../ui/ItemCounter';
-import ProductSlideshow from '../products/ProductSlideshow';
-import { IProduct, ISize } from '@/interfaces/products';
 import { useRouter } from 'next/navigation';
+import { Box, Button, Chip, Grid, Typography } from '@mui/material';
+import { ICartProduct } from '@/interfaces/cart';
+import { IProduct, ISize } from '@/interfaces/products';
 import { useAppDispatch } from '@/redux/hooks';
 import { addProductToCart } from '@/redux/slices/cartSlice';
+import { ItemCounter } from '@/components/ui/ItemCounter';
+import ProductSlideshow from '@/components/products/ProductSlideshow';
+import { SizeSelector } from '@/components/products/SizeSelector';
 
 interface Props {
   product: IProduct;

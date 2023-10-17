@@ -25,13 +25,16 @@ export const useResetPasswordSubmit = (
     setLoading(true);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reset-password/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/reset-password/${id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ password }),
         },
-        body: JSON.stringify({ password }),
-      });
+      );
 
       if (response.ok) {
         setLoading(false);

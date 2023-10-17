@@ -10,7 +10,6 @@ export const signInYupSchema = yup.object().shape({
     .required('Please enter your password.')
     .min(6, 'Password is too short!')
     .max(40, 'Password is too long!'),
-  isTrustDevice: yup.boolean().default(false),
 });
 
 export const signUnYupSchema = yup.object().shape({

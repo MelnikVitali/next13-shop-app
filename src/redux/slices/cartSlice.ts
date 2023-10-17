@@ -1,9 +1,7 @@
-import shopApi from '@/apis/shopApi';
-import { ICartProduct, IOrderSummary } from '@/interfaces/cart';
+import { ICartProduct } from '@/interfaces/cart';
 import { IOrder, ShippingAddress } from '@/interfaces/order';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { RootState } from '../store';
 
 export interface ICart {

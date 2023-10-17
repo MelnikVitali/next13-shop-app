@@ -2,16 +2,17 @@ import ReduxProvider from '@/redux/ReduxProvider';
 import { Roboto } from 'next/font/google';
 import type { Metadata } from 'next';
 import ThemeRegistry from '@/theme/ThemeRegistry';
+import { AuthContext } from '@/context/AuthContext';
 import ToasterContext from '@/context/ToasterContext';
 import Favicon from '/public/favicon.ico';
-import '@/styles/globals.css';
 import Footer from '@/components/ui/Footer';
-import { AuthContext } from '@/context/AuthContext';
+import '@/styles/globals.css';
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
+  style: ['normal'],
 });
 
 export const metadata: Metadata = {

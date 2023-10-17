@@ -1,7 +1,6 @@
-import { SHOP_CONSTANTS } from '@/database/constants';
+import { NextRequest, NextResponse } from 'next/server';
 import db from '@/database/db';
 import Product from '@/models/Product';
-import { NextRequest, NextResponse } from 'next/server';
 
 interface Params {
   params: {

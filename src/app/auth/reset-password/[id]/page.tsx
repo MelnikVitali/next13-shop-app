@@ -1,5 +1,6 @@
-import ResetPasswordForm from '@/components/Form/ResetPasswordForm';
 import { FC } from 'react';
+import ResetPasswordForm from '@/components/Form/ResetPasswordForm';
+import OutShopLayout from '@/components/layouts/OutShopLayout';
 
 type Props = {
   params: {
@@ -8,7 +9,11 @@ type Props = {
 };
 
 const ResetPassword: FC<Props> = ({ params: { id } }) => {
-  return <ResetPasswordForm id={id} />;
+  return (
+    <OutShopLayout>
+      <ResetPasswordForm id={id} />
+    </OutShopLayout>
+  );
 };
 
 export default ResetPassword;

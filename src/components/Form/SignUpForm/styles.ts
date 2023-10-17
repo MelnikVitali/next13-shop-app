@@ -1,4 +1,3 @@
-import { Wrapper } from '../../UserProfile/styles';
 export const styles = {
   wrapper: {
     height: '100%',
@@ -39,6 +38,9 @@ export const styles = {
     mt: 2,
     width: '80%',
     marginInline: 'auto',
+    '&:hover': {
+      backgroundColor: '#274494 !important',
+    },
   },
   errorText: {
     marginTop: '1rem',

@@ -41,6 +41,9 @@ export const styles = {
     mt: 2,
     width: '80%',
     marginInline: 'auto',
+    '&:hover': {
+      backgroundColor: '#274494 !important',
+    },
   },
   signInLink: {
     textDecoration: 'none',

@@ -15,6 +15,7 @@ export const GET = async (req: NextRequest) => {
     }
 
     await db.connect();
+
     const products = await Product.find(condition)
       .select('title images price inStock slug -_id')
       .lean();
@@ -32,6 +33,7 @@ export const GET = async (req: NextRequest) => {
     return NextResponse.json(updatedProducts, { status: 200 });
   } catch (error) {
     console.log(error);
+
     return NextResponse.json({ message: 'Bad request' }, { status: 400 });
   }
 };

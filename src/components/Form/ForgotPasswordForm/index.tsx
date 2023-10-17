@@ -71,6 +71,7 @@ const ForgotPaSwordForm: FC = () => {
                         loading={loading}
                         type='submit'
                         variant='contained'
+                        color='secondary'
                         sx={styles.btn}
                       >
                         Submit

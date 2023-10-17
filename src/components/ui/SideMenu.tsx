@@ -1,6 +1,5 @@
 'use client';
-import { useContext, useState } from 'react';
-
+import { useState } from 'react';
 import {
   Box,
   Divider,
@@ -83,7 +82,7 @@ export const SideMenu = () => {
 
           {session && (
             <>
-              <ListItem button>
+              <ListItem button onClick={() => navigateTo('/profile')}>
                 <ListItemIcon>
                   <AccountCircleOutlined />
                 </ListItemIcon>
@@ -133,12 +132,14 @@ export const SideMenu = () => {
           </ListItem>
 
           {session ? (
-            <ListItem button onClick={() => signOut()}>
-              <ListItemIcon>
-                <LoginOutlined />
-              </ListItemIcon>
-              <ListItemText primary={'Sign out'} />
-            </ListItem>
+            <>
+              <ListItem button onClick={() => signOut({ callbackUrl: '/' })}>
+                <ListItemIcon>
+                  <LoginOutlined />
+                </ListItemIcon>
+                <ListItemText primary={'Sign out'} />
+              </ListItem>
+            </>
           ) : (
             <ListItem button onClick={() => navigateTo(`/auth/login?p=${pathname}`)}>
               <ListItemIcon>
@@ -149,39 +150,39 @@ export const SideMenu = () => {
           )}
 
           {/* Admin */}
-          {/* {user?.role === 'admin' && ( */}
-          <>
-            <Divider />
-            <ListSubheader>Admin Panel</ListSubheader>
+          {session?.user?.role === 'admin' && (
+            <>
+              <Divider />
+              <ListSubheader>Admin Panel</ListSubheader>
 
-            <ListItem button onClick={() => navigateTo('/admin/')}>
-              <ListItemIcon>
-                <DashboardOutlined />
-              </ListItemIcon>
-              <ListItemText primary={'Dashboard'} />
-            </ListItem>
+              <ListItem button onClick={() => navigateTo('/admin/')}>
+                <ListItemIcon>
+                  <DashboardOutlined />
+                </ListItemIcon>
+                <ListItemText primary={'Dashboard'} />
+              </ListItem>
 
-            <ListItem button onClick={() => navigateTo('/admin/products')}>
-              <ListItemIcon>
-                <CategoryOutlined />
-              </ListItemIcon>
-              <ListItemText primary={'Products'} />
-            </ListItem>
-            <ListItem button onClick={() => navigateTo('/admin/orders')}>
-              <ListItemIcon>
-                <ConfirmationNumberOutlined />
-              </ListItemIcon>
-              <ListItemText primary={'Orders'} />
-            </ListItem>
+              <ListItem button onClick={() => navigateTo('/admin/products')}>
+                <ListItemIcon>
+                  <CategoryOutlined />
+                </ListItemIcon>
+                <ListItemText primary={'Products'} />
+              </ListItem>
+              <ListItem button onClick={() => navigateTo('/admin/orders')}>
+                <ListItemIcon>
+                  <ConfirmationNumberOutlined />
+                </ListItemIcon>
+                <ListItemText primary={'Orders'} />
+              </ListItem>
 
-            <ListItem button onClick={() => navigateTo('/admin/users')}>
-              <ListItemIcon>
-                <AdminPanelSettings />
-              </ListItemIcon>
-              <ListItemText primary={'Users'} />
-            </ListItem>
-          </>
-          {/* )} */}
+              <ListItem button onClick={() => navigateTo('/admin/users')}>
+                <ListItemIcon>
+                  <AdminPanelSettings />
+                </ListItemIcon>
+                <ListItemText primary={'Users'} />
+              </ListItem>
+            </>
+          )}
         </List>
       </Box>
     </Drawer>

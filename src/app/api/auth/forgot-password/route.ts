@@ -1,13 +1,15 @@
 import nodemailer from 'nodemailer';
-import { connectToMongoDB } from '@/lib/mongodb';
-import User from '@/models/user';
+import db from '@/database/db';
+import User from '@/models/User';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request, res: Response) {
   try {
-    await connectToMongoDB();
+    await db.connect();
     const { email } = await req.json();
     const user = await User.findOne({ email });
+
+    await db.disconnect();
 
     if (!user) {
       throw new Error('This email is not associated with any account.');
@@ -24,12 +26,12 @@ export async function POST(req: Request, res: Response) {
     var mailOptions = {
       from: process.env.NODEMAILER_EMAIL,
       to: user.email,
-      subject: '[next-blog-vercel app] Please Reset your Password.',
+      subject: '[next-shop-app] Please Reset your Password.',
       name: user.name,
       html: `
       <div>
         <p>Hello, ${user.name}</p>
-        <p>Please follow <a href="${process.env.NEXTAUTH_URL}/reset-password/${user._id}">🠖 this link 🠔</a></button> to reset your password.</p>
+        <p>Please follow <a href="${process.env.NEXTAUTH_URL}/auth/reset-password/${user._id}">🠖 this link 🠔</a></button> to reset your password.</p>
       </div>
       `,
     };

@@ -56,16 +56,16 @@ const SummaryPage = () => {
   //   return <></>;
   // }
 
-  const {
-    firstName,
-    lastName,
-    address,
-    address2 = '',
-    city,
-    country,
-    phone,
-    zip,
-  } = shippingAddress;
+  // const {
+  //   firstName,
+  //   lastName,
+  //   address,
+  //   address2 = '',
+  //   city,
+  //   country,
+  //   phone,
+  //   zip,
+  // } = shippingAddress;
 
   return (
     <ShopLayout>
@@ -92,7 +92,7 @@ const SummaryPage = () => {
                 </MuiLink>
               </Box>
 
-              <Typography>
+              {/* <Typography>
                 {firstName} {lastName}
               </Typography>
               <Typography>
@@ -103,8 +103,9 @@ const SummaryPage = () => {
                 {city}, {zip}
               </Typography>
               {/* <Typography>{ countries.find( c => c.code === country )?.name }</Typography> */}
-              <Typography>{country}</Typography>
-              <Typography>{phone}</Typography>
+
+              {/* <Typography>{country}</Typography>
+              <Typography>{phone}</Typography> */}
 
               <Divider sx={{ my: 1 }} />
 

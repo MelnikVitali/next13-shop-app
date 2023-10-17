@@ -1,13 +1,11 @@
 'use client';
-import { useContext, useEffect } from 'react';
-
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Box, Button, Card, CardContent, Divider, Grid, Typography } from '@mui/material';
-
-import { ShopLayout } from '@/components/layouts/ShopLayout';
+import { useAppSelector } from '@/redux/hooks';
 import { CartList } from '@/components/cart/CartList';
 import { OrderSummary } from '@/components/cart/OrderSummary';
-import { useRouter } from 'next/navigation';
-import { useAppSelector } from '@/redux/hooks';
+import { ShopLayout } from '@/components/layouts/ShopLayout';
 
 const CartPage = () => {
   const { cart } = useAppSelector((state) => state.cart);

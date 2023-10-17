@@ -69,14 +69,15 @@ export const lightTheme = {
         root: {
           textTransform: 'none',
           boxShadow: 'none',
-          borderRadius: 10,
+          borderRadius: 5,
           ':hover': {
-            backgroundColor: 'rgba(0,0,0,0.05)',
+            backgroundColor: 'rgba(0,0,0,0.3)',
             transition: 'all 0.3s ease-in-out',
           },
         },
       },
     },
+
     MuiCard: {
       defaultProps: {
         elevation: 0,
